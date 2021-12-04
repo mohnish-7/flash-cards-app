@@ -1,7 +1,7 @@
-# flash-cards-app
-Flash Cards App
+# Flash Cards App
 
-> A flashcard or flash card (also known as an index card) is a card bearing information on both sides, which is intended to be used as an aid in memorization. Each flashcard bears a question on one side and an answer on the other. Flashcards are often used to memorize vocabulary, historical dates, formulas or any subject matter that can be learned via a question-and-answer format.
+
+> A flashcard or flash card (also known as an index card) is a card bearing information on both sides, which is intended to be used as an aid in memorization. Each flashcard bears a question on one side and an answer on the other. Flashcards are often used to memorize vocabulary, historical dates, formulas or any subject matter that can be learned via a question-and-answer format. Here I've tried to implement something similar in the form of a web app.
 
 Steps to use the app:
 
@@ -17,3 +17,6 @@ Steps to use the app:
 *    Start using the app by either logging in or registering for an account.
 
 *    Happy learning :) !
+
+
+> **NOTE**: Since I've used *SQLite3* database in this project, users won't be able to store their stuff permanently in the database.
