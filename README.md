@@ -16,8 +16,9 @@ Steps to use the app:
 
 *    Start using the app by either logging in or registering for an account.
 
-*    If you want login without creating an account, you can use a demo account: <br>
+*    If you want login without creating an account, you can use a demo account: <br><br>
        Username: **stranger**
+       <br>
        Password: **pwd**
 
 *    Happy learning :) !
