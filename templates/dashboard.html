@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Flash Cards - Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Faster+One&family=Finger+Paint&family=Gugi&family=Roboto&family=Rubik&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+</head>
+
+<body>
+
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/logout">FLASH CARDS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/dashboard">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Options
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+              <li class="nav-item">
+                <a class="nav-link" href="/new_deck">New Deck</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/delete_deck">Delete</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/change_deck_name">Edit</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/deck_search">Search</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="jumbotron section-head">
+    <h3 style="margin-bottom:0px;">{{usr_name}}'s Dashboard</h3>
+    {% if flag == 1 %}
+    <h5 style="margin-bottom:0px;margin-top:50px;color:#AAA492;">Dashboard is empty. Create a New Deck.</h5>
+    {% endif %}
+  </div>
+
+  <div class="row">
+    {% for deck in decks %}
+    <div class="col-sm-6">
+      <div class="card deck">
+        <div class="card-body deck-body">
+          <strong>
+            <h5 class="card-title">{{ deck['deck_name'] }}</h5>
+          </strong>
+          <div class="details">
+            <strong>
+              <div class="score">
+                <h5 style="display:inline;">Latest Score: </h5>
+              </div>
+              <p class="score-details">{{deck['score']}}</p>
+              <br>
+              <div class="num-reviewed">
+                <h5 style="display:inline;">Number of cards reviewed last time: </h5>
+              </div>
+              <p class="score-details">{{deck['num']}}</p>
+              <br>
+              <div class="last-review">
+                <h5 style="display:inline;">Last reviewed on: </h5>
+              </div>
+              <p class="score-details">{{deck['last_review']}}</p>
+            </strong>
+          </div>
+          <form class="" action="/cards/{{deck['deck_id']}}" method="post">
+            <button type="submit" class="btn btn-primary practice-btn">Practice</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Error</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Faster+One&family=Finger+Paint&family=Gugi&family=Roboto&family=Rubik&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+</head>
+
+<body>
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/logout">FLASH CARDS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+          {% if code == 'usernotfound' %}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Login</a>
+          </li>
+          {% elif code == 'usernameexists' %}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Login</a>
+          </li>
+          {% elif code == 'wpwd' %}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Login</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/dashboard">Home</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="jumbotron section-head">
+    <h3 style="margin-bottom:0px;">ERROR</h3>
+  </div>
+  <h2 class="status-msg">{{failure}}</h2>
+  {% if code == 'usernotfound'%}
+  <a href="/register">Register</a> ?
+  {% elif code == 'usernameexists'%}
+  Back to <a href="/register">Sign Up</a> ?
+  {% elif code == 'deckexists'%}
+  <a href="/new_deck">Go Back</a>
+  {% elif code == 'delcards'%}
+  <a href="/dashboard">Go back</a>
+  {% elif code == 'sww'%}
+  <a href="/logout">Logout</a>
+  {% elif code == 'nodeckexists1'%}
+  <a href="/delete_deck">Go Back</a>
+  {% elif code == 'nodeckexists2'%}
+  <a href="/change_deck_name">Go Back</a>
+  {% elif code == 'nodeckexists3'%}
+  <a href="/deck_search">Go Back</a>
+  {% elif code == 'nocardexists'%}
+  <a href="/delete_card">Go Back</a>
+  {% elif code == 'wpwd'%}
+  <a href="/">Try Again</a>
+
+  {% endif %}
+
+</body>
+
+</html>

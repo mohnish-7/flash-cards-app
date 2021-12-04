@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Cards</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Faster+One&family=Finger+Paint&family=Gugi&family=Roboto&family=Rubik&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+
+</head>
+
+<body>
+
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/logout">FLASH CARDS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" href="/dashboard">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Edit Cards
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+              <li class="nav-item">
+                <a class="nav-link" href="/new_card">New</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/delete_card">Delete</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="jumbotron section-head">
+    <h3 style="margin-bottom:0px;">Cards from {{dn}}</h3>
+    {% if flag == 1 %}
+    <h5 style="margin-bottom:0px;margin-top:20px;color:#AAA492;">{{ n_cards }} cards available</h5>
+    {% endif %}
+  </div>
+
+  {% if card != None %}
+  <div class="card flash-card">
+    <div class="card-body">
+      <span>
+        <p class="question">{{ card['card_title'] }}</p>
+        <p>
+          <a class="btn btn-primary q-btn ans-btn" data-bs-toggle="collapse" href="#card{{ card['card_id'] }}" role="button" aria-expanded="false" aria-controls="card{{ card['card_title'] }}">
+            Answer
+          </a>
+        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+          <form action="/score/0" method="post">
+            <button type="submit" class="btn btn-danger ch-btn">Difficult</button>
+          </form>
+          <form action="/score/0.5" method="post">
+            <button type="submit" class="btn btn-warning ch-btn">Medium</button>
+          </form>
+          <form action="/score/1" method="post">
+            <button type="submit" class="btn btn-success ch-btn">Easy</button>
+          </form>
+        </div>
+        </p>
+        <div class="collapse" id="card{{ card['card_id'] }}">
+          <div class="card card-body explanation">
+            {{ card['card_content'] }}
+          </div>
+        </div>
+      </span>
+
+    </div>
+  </div>
+
+  <a href="/all_cards/{{d_id}}">All Cards</a>
+
+  {% endif %}
+
+</body>
+
+</html>

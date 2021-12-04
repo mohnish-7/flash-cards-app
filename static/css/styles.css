@@ -1,0 +1,180 @@
+/* All classes for styling */
+
+
+body {
+  font-family: "Roboto";
+  text-align: center;
+  background-color: #FDFF8F;
+
+}
+.btn {
+  border-radius: 5px;
+}
+.title {
+  padding: 60px;
+  font-size: 6rem;
+  font-family: "Faster One";
+}
+
+.form-control {
+  text-align: center;
+}
+
+.input_field {
+  padding: 10px 0;
+  margin-left: 630px;
+  width: 270px;
+}
+
+.username-input {
+  border-radius: 10px;
+}
+
+.navbar {
+  border-radius: 20px;
+  margin: 20px;
+  padding: 20px 40px;
+}
+
+.navbar-brand {
+  font-family: "Faster One";
+  font-size: 2rem;
+}
+
+.dropdown-menu-dark {
+  border-radius: 20px;
+}
+
+.nav-item {
+  font-family: "Gugi";
+  padding: 0 15px;
+  font-size: 1.2rem;
+}
+
+ .navbar-nav {
+   padding: 12px;
+ }
+
+ .deck {
+   margin: 25px;
+   background-color: #FFAB4C;
+   border-width: 7px;
+   border-radius: 15px;
+   border-color: #212121;
+ }
+
+.new-deck-head {
+  padding: 25px;
+}
+
+.flash-card {
+  margin: 50px 250px;
+  background-color: #212121;
+  border-width: 7px;
+  border-radius: 15px;
+  border-color: #FFAB4C;
+}
+
+.card-title {
+  font-family: "Gugi";
+  font-size: 2rem;
+  padding-bottom: 20px;
+}
+
+.deck-body {
+  text-align: left;
+}
+
+.ch-btn {
+  margin: 0 15px;
+  width: 150px;
+  border-radius: 25px;
+}
+
+.question {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.status-msg {
+  padding-top: 100px;
+  padding-bottom: 15px;
+}
+
+.section-head {
+  margin: 30px 300px;
+  padding: 25px;
+  font-size: 4rem;
+  color: #fff;
+  background-color: #444941;
+  border-radius: 20px;
+  font-family: "Gugi";
+}
+
+.login-and-register-head {
+  margin: 20px 500px;
+  padding: 15px;
+  color: #fff;
+  background-color: #444941;
+  border-radius: 15px;
+}
+
+
+.login-register-title {
+  font-family: "Gugi";
+  font-size: 1.5rem;
+  margin-bottom: 0px;
+}
+
+.score {
+  display: inline;
+  margin-right: 240px;
+}
+
+.last-review {
+  display: inline;
+  margin-right: 200px;
+  margin-bottom: 30px;
+}
+
+.num-reviewed {
+  display: inline;
+  margin-right: 35px;
+}
+
+.details {
+  margin-bottom: 30px;
+}
+
+.ans-btn {
+  margin: 10px 0;
+  width: 100px;
+  border-radius: 25px;
+}
+
+.score-details {
+  display: inline;
+  font-size: 20px;
+}
+
+.practice-btn {
+  float: right;
+  margin-right: 20px;
+}
+
+.explanation {
+  font-weight: 900;
+  font-size: 1.3rem;
+  background-color: #FFAB4C;
+}
+
+.alert {
+  border-radius: 20px;
+  border-width: 5px;
+  border-color: #055052;
+  margin: 100px 400px;
+}
+
+footer {
+  margin-top: 100px;
+}
