@@ -23,6 +23,6 @@ Steps to use the app:
 
 *    Happy learning :) !
 
-*    Or, just go to  mohnish-7/face_recognition_system
+*    Or, just go to  https://flash-cards-project.mohnish7.repl.co/
 
 > **NOTE**: Since I've used *SQLite3* database in this project, users won't be able to store their stuff permanently in the database.
